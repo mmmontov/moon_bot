@@ -7,3 +7,4 @@ get_today_moon_button: KeyboardButton = KeyboardButton(text=LEXICON_RU['today_mo
 
 all_moons_kb: ReplyKeyboardMarkup = ReplyKeyboardMarkup(keyboard=[[get_today_moon_button]], resize_keyboard=True)
 
+print('клавиатуры работают')
