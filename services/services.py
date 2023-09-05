@@ -1,4 +1,5 @@
 from parsers.today_moon_parser import get_today_moon
+from parsers.week_moons_parser import get_week_moons
 
 
 # перевод информации на русский
@@ -11,5 +12,17 @@ def get_today_moon_ru():
 
     return today_date, ru_moon_data
 
-# print(get_today_moon())
+
+# форматирование информации на неделю
+def get_week_moons_format():
+    data = get_week_moons()
+    format_data = []
+    for d, v in data:
+        format_data.append(f'{d}:')
+        format_data.append("\n".join(v)+'\n')
+
+    return "\n".join(format_data)
+
+
+
 print('сервисы подключены')
