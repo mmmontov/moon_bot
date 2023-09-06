@@ -1,4 +1,4 @@
-from parsers.today_moon_parser import get_today_moon
+from parsers.today_moon_parser import get_today_moon, get_today_moon_pic
 from parsers.week_moons_parser import get_week_moons
 
 
@@ -22,6 +22,9 @@ def get_week_moons_format():
         format_data.append("\n".join(v)+'\n')
 
     return "\n".join(format_data)
+
+def get_today_moon_pick_src():
+    return get_today_moon_pic()
 
 
 

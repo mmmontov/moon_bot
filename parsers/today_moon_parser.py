@@ -23,16 +23,15 @@ def get_today_moon():
     
     return today_date, today_moon_data
 
-# перевод перенесён в services
+def get_today_moon_pic():
+    req = requests.get(url=main_url, headers=headers)
+    src = req.text
 
-#def get_today_moon_ru():
-#    ru_moon_data = {}
-#    ru_property = ['Фаза луны', 'Видимость', 'Восход/Закат', 'Возраст луны', 'Угловой размер луны', 'Расстояние до луны']
-#    today_date, moon_data = get_today_moon()
-#    for ru, elem in zip(ru_property, moon_data.values()):
-#        ru_moon_data[ru] = elem
-#
-#    return today_date, ru_moon_data
+    soup = BeautifulSoup(src, 'lxml')
+
+    moon_pic_link = soup.find('body').find(class_='headerdetails').find('img')
+    return moon_pic_link['src']
+
 
 # print(get_today_moon())
 print('парсер подключен')

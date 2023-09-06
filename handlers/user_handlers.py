@@ -2,7 +2,7 @@ from aiogram import F, Router
 from aiogram.types import Message
 from aiogram.filters import Command, CommandStart
 from lexicon.lexicon_ru import LEXICON_RU
-from services.services import get_today_moon_ru, get_week_moons_format
+from services.services import get_today_moon_ru, get_week_moons_format, get_today_moon_pick_src
 from keyboards.keyboards import all_moons_kb
 
 router: Router = Router()
@@ -24,8 +24,9 @@ async def process_help_command(message: Message):
 async def process_get_today_moon(message: Message):
     date, moon_data = get_today_moon_ru()
     moon_data = "\n".join([f'{k}: {v}' for k, v in moon_data.items()])
+    await message.answer_photo(photo=get_today_moon_pick_src())
     await message.answer(text=f'{date}:\n\n{moon_data}')
-    # await message.answer(text=)
+    
     
 # получение прогноза лун на неделю
 @router.message(F.text == LEXICON_RU['week_moons_button'])
