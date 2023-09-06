@@ -6,3 +6,8 @@ LEXICON_RU = {
     'week_moons_button': 'прогноз на неделю',
     
 }
+
+LEXICON_COMMANDS_RU = {
+    '/start': 'начало (обновление кнопок)',
+    '/help': 'описание и ссылка на источник',
+}

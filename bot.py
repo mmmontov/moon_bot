@@ -2,6 +2,7 @@ import asyncio
 from aiogram import Bot, Dispatcher, F
 from config_data.config import load_config, Config
 from handlers import user_handlers, other_handlers
+from keyboards.set_menu import set_main_menu
 
 
 async def main():
@@ -13,6 +14,7 @@ async def main():
 
     dp.include_routers(user_handlers.router, other_handlers.router)
      
+    await set_main_menu(bot)
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot)
 
